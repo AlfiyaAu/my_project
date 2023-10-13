@@ -1,6 +1,11 @@
 import React from "react";
+import {SlTrash} from "react-icons/sl"
+import { useState } from "react";
 
 export default function Header (){
+
+    let [cartOpen,setCartOpen]=useState(false);
+
     return(
         <header>
             <div>
@@ -12,6 +17,7 @@ export default function Header (){
                 <li> Контакты </li>
                 <li> Личный кабинет </li>   
             </ul>
+            <SlTrash onClick={()=>setCartOpen(cartOpen=!cartOpen)} className={`shop-cart-buttom ${cartOpen && "active"}`}/>
 
             <div className="presentation">
             

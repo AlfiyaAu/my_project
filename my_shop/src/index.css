@@ -38,6 +38,22 @@ header ul.nav li:hover{
   opacity: 0.5;
 }
 
+header .shop-cart-buttom{
+  float: right;
+  cursor: pointer;
+  transition: color 500ms ease;
+  transition: transform 500ms ease;
+}
+
+header .shop-cart-buttom:hover,
+header .shop-cart-buttom.active{
+  color: blueviolet;
+  transform: scale(1.15);
+}
+
+
+
+
 header .presentation{
   margin: 50px 0;
   background: url("./img/moda8.jpeg") no-repeat;
@@ -70,6 +86,66 @@ header .presentation::before{
   font-weight: 600;
   color: rgb(37, 16, 1);
 }
+
+main{
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+main .item{
+  width: 30%;
+  margin-bottom: 50px;
+  background: #C2B9B0;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+main .item img{
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+  transition: transform 500ms ease;
+}
+
+main .item img:hover{
+  transform: scale(1.10);
+}
+
+main h2,
+main p,
+main b{
+  margin: 15px 20px;
+  color: rgb(37, 16, 1) ;
+  padding-bottom: 20px;
+}
+
+main b{
+  color: brown;
+  padding-bottom: 20px;
+}
+
+main .add-to-cart{
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  background:#7e685a;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  color:  rgb(37, 16, 1);
+  border-radius: 50%;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 500ms ease;
+}
+
+main .add-to-cart:hover{
+  transform: scale(1.05)translateY(-5px);
+}
+
 
 footer{
   text-align: center;
