@@ -17,6 +17,10 @@ body{
   margin: 50px auto;
 }
 
+header{
+  position: relative;
+}
+
 header .logo{
   font-weight: 600;
   font-size: 20px;
@@ -52,7 +56,42 @@ header .shop-cart-buttom.active{
 }
 
 
+header .shop-cart{
+  position: absolute;
+  top: 30px;
+  right: 0;
+  width: 450px;
 
+  background: white;
+  -webkit-box-shadow: 19px 26px 37px -9px rgba(34, 60, 80, 0.32) inset;
+  -moz-box-shadow: 19px 26px 37px -9px rgba(34, 60, 80, 0.32) inset;
+  box-shadow: 19px 26px 37px -9px rgba(34, 60, 80, 0.32) inset;
+  z-index: 1000;
+  padding: 20px;
+  padding-bottom: 0;
+}
+
+header .shop-cart .item{
+  width: 100%;
+  float: left;
+  margin-bottom: 20px;
+}
+
+header .shop-cart .item img{
+  width: 70px;
+  float: left;
+  margin-right: 20px;
+}
+
+header .shop-cart .item h2{
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+header .shop-cart .item b{
+  color: blueviolet;
+  font-weight: 600;
+}
 
 header .presentation{
   margin: 50px 0;

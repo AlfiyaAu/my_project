@@ -1,8 +1,9 @@
 import React from "react";
 import {SlTrash} from "react-icons/sl"
 import { useState } from "react";
+import Order from "./Order";
 
-export default function Header (){
+export default function Header (props){
 
     let [cartOpen,setCartOpen]=useState(false);
 
@@ -10,7 +11,6 @@ export default function Header (){
         <header>
             <div>
                 <span className="logo"> My moda </span>
-            </div>
 
             <ul className="nav">
                 <li> Про нас </li>
@@ -18,6 +18,16 @@ export default function Header (){
                 <li> Личный кабинет </li>   
             </ul>
             <SlTrash onClick={()=>setCartOpen(cartOpen=!cartOpen)} className={`shop-cart-buttom ${cartOpen && "active"}`}/>
+            
+            {cartOpen && (
+                <div className="shop-cart"> 
+                    {props.orders2.map(el => (
+                        <Order key={el.id} item2={el} />
+                    ))}
+                </div>
+            )}
+
+            </div>
 
             <div className="presentation">
             
