@@ -71,10 +71,39 @@ header .shop-cart{
   padding-bottom: 0;
 }
 
+header .shop-cart .empty h2{
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: aqua;
+}
+
 header .shop-cart .item{
   width: 100%;
   float: left;
   margin-bottom: 20px;
+}
+
+header .shop-cart .item .delete-icon{
+  color: aqua;
+  float:right;
+  position: relative;
+  top: -25px;
+  cursor: pointer;
+  transition: color, transform 500ms ease;
+}
+
+header .shop-cart .item .delete-icon:hover{
+  color: rgb(0, 255, 162);
+  transform: scale(1.5);
+}
+
+header .shop-cart .summa{
+  float:left;
+  width: 100%;
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: aqua;
 }
 
 header .shop-cart .item img{
@@ -126,6 +155,23 @@ header .presentation::before{
   color: rgb(37, 16, 1);
 }
 
+.categories div{
+  display: inline-block;
+  background: palevioletred;
+  border-radius: 50px;
+  padding: 5px 15px;
+  margin-bottom: 25px;
+  margin-right: 15px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 500ms ease;
+}
+
+.categories div:hover{
+  border-color: teal;
+  transform: scale(1.1);
+}
+
 main{
   display: flex;
   width: 100%;
@@ -146,6 +192,7 @@ main .item img{
   width: 100%;
   border-radius: 10px 10px 0 0;
   transition: transform 500ms ease;
+  cursor: pointer;
 }
 
 main .item img:hover{

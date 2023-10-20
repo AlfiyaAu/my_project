@@ -1,11 +1,15 @@
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Items from "./components/Items";
+import Categories from "./components/Categories";
+import ShowFullItem from "./components/ShowFullItem";
 
 export default function App() {
 
   const [orders, setOrders]=useState([]);
+  const [currentItems,setCurrentItems]=useState([]);
+  const [showFullItem,setShowFullItem]=useState(false);
   const [items,setItems] =useState([
     {
       id:1,
@@ -13,7 +17,7 @@ export default function App() {
       img:"dr1.jpg",
       desk:"Элегантное маленькое черное платье, которое должно быть в гардеробе у любой девушки. Где бы вы не захотели провести вечер, оно станет самым лучшим дополнением к вашей индивидуальности.",
       category: "zara",
-      price:"6300"
+      price:"6300.98"
     },
     {
       id:2,
@@ -21,7 +25,7 @@ export default function App() {
       img:"dr2.jpg",
       desk:"Блузка женская из поплина, для повседневной носки, полуприлегающего силуэта с центральной застёжкой на планке на десять обмётанных петель и десять пуговиц, расположенных группами.",
       category: "Zolla",
-      price:"4800"
+      price:"4800.01"
     },
     {
       id:3,
@@ -60,7 +64,7 @@ export default function App() {
       title: "Босоножки на танкетке",
       img:"dr7.jpg",
       desk:"Сочетание платформы и каблука, которые создают постепенно увеличивающийся объем. Главный плюс такой обуви — безусловный комфорт. Ноги в босоножках на танкетке почти не устают — это отличный выбор для повседневной носки в городе.",
-      category: "Dino Albat",
+      category: "Ekonika",
       price:"4300"
     },
     {
@@ -84,11 +88,15 @@ export default function App() {
       title: "Свитер мужской",
       img:"dr10.jpg",
       desk:"Мужской свитер рассчитан на сильные морозы и обеспечивает максимальную защиту от холода.",
-      category: "Hugo Boss",
+      category: "Louis Vuitton",
       price:"25000"
     }
 
   ])
+
+  useEffect(() => {
+    setCurrentItems(items);
+  }, [items]);
 
   const addToOrder=(item3)=>{
     if(!orders.some((el)=>el.id===item3.id)){
@@ -96,10 +104,29 @@ export default function App() {
     }
   };
 
+  const deleteOrder = (id) => {
+    setOrders(orders.filter((el) => el.id !== id));
+  };
+
+  const chooseCategory=(category)=>{
+    if (category==="all"){
+      setCurrentItems(items);
+    }
+    else {
+      setCurrentItems(items.filter((el) => el.category === category));
+    }
+  }
+
+  const onShowItem = (item)=> {
+    setShowFullItem(!showFullItem);
+  }
+
   return (
     <div className="wrapper">
-    <Header orders2={orders}/>
-    <Items allItems={items} onAdd={addToOrder}/>
+    <Header orders2={orders} onDelete={deleteOrder}/>
+    <Categories chooseCategory={chooseCategory}/>
+    <Items allItems={currentItems} onShowItem={onShowItem} onAdd={addToOrder}/>
+    {showFullItem && <ShowFullItem/>}
     <Footer/>
     </div>
   );

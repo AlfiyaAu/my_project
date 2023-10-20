@@ -3,6 +3,27 @@ import {SlTrash} from "react-icons/sl"
 import { useState } from "react";
 import Order from "./Order";
 
+const showOrders=(props)=>{
+    let summa=0;
+    props.orders2.forEach(el=>summa +=Number.parseFloat(el.price))
+    return(
+        <div>
+            {props.orders2.map(el => (
+                <Order onDelete={props.onDelete} key={el.id} item={el}/>
+            ))}
+            <p className="summa">К оплате: {new Intl.NumberFormat().format(summa)} $</p>
+        </div>
+    );
+}
+
+const showNothing=()=>{
+    return(
+        <div className="empty">
+            <h2>Товары в корзине отсутствуют</h2>            
+        </div>
+    );
+}
+
 export default function Header (props){
 
     let [cartOpen,setCartOpen]=useState(false);
@@ -20,10 +41,11 @@ export default function Header (props){
             <SlTrash onClick={()=>setCartOpen(cartOpen=!cartOpen)} className={`shop-cart-buttom ${cartOpen && "active"}`}/>
             
             {cartOpen && (
-                <div className="shop-cart"> 
-                    {props.orders2.map(el => (
-                        <Order key={el.id} item2={el} />
-                    ))}
+                <div className="shop-cart">
+                    {props.orders2.length> 0 ?
+                        showOrders(props):showNothing()    
+                    } 
+                    
                 </div>
             )}
 
