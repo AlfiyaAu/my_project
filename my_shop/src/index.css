@@ -103,7 +103,7 @@ header .shop-cart .summa{
   font-weight: 600;
   font-size: 20px;
   margin-bottom: 20px;
-  color: aqua;
+  color:teal;
 }
 
 header .shop-cart .item img{
@@ -172,6 +172,30 @@ header .presentation::before{
   transform: scale(1.1);
 }
 
+.full-item{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:rgba(0, 0, 0.8, 0.9);
+  z-index: 9999;
+  overflow: auto;
+}
+
+.full-item > div{
+  width: 600px;
+  position: relative;
+  margin: 5% auto;
+  padding: 40px 30px;
+  background: blanchedalmond;
+  border-radius: 5px;
+}
+
+.full-item > div > img{
+  width: 600px;
+}
+
 main{
   display: flex;
   width: 100%;
@@ -188,31 +212,34 @@ main .item{
   position: relative;
 }
 
-main .item img{
+main .item img,
+.full-item .item img{
   width: 100%;
   border-radius: 10px 10px 0 0;
   transition: transform 500ms ease;
   cursor: pointer;
 }
 
-main .item img:hover{
+main .item img:hover,
+.full-iyem .item img:hover{
   transform: scale(1.10);
 }
 
-main h2,
-main p,
-main b{
+main h2, .full-item h2,
+main p, .full-item p,
+main b, .full-item b{
   margin: 15px 20px;
   color: rgb(37, 16, 1) ;
   padding-bottom: 20px;
 }
 
-main b{
+main b, .full-item b{
   color: brown;
   padding-bottom: 20px;
 }
 
-main .add-to-cart{
+main .add-to-cart,
+.full-item .add-to-cart{
   position: absolute;
   right: 20px;
   bottom: 20px;
@@ -228,9 +255,11 @@ main .add-to-cart{
   transition: transform 500ms ease;
 }
 
-main .add-to-cart:hover{
+main .add-to-cart:hover,
+.full-item .add-to-cart:hover{
   transform: scale(1.05)translateY(-5px);
 }
+
 
 
 footer{
