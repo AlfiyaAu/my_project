@@ -18,15 +18,15 @@ export default function App() {
     axios
       .get("http://localhost:3001/items")
       .then((response) => {
-      setItems(response.data):
+      setItems(response.data);
       chooseCategory ("all");
-      setCurrentItems(response.data)
+      setCurrentItems(response.data);
       })
       .catch((error)=> {
         console.error ("Ошибка при загрузке данных", error);
       });
     
-  }, [items]);
+  }, []);
 
   const addToOrder=(item3)=>{
     if(!orders.some((el)=>el.id===item3.id)){

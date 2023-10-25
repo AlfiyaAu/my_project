@@ -74,7 +74,7 @@ header .shop-cart{
 header .shop-cart .empty h2{
   font-size: 20px;
   margin-bottom: 20px;
-  color: aqua;
+  color:teal;
 }
 
 header .shop-cart .item{
@@ -84,7 +84,7 @@ header .shop-cart .item{
 }
 
 header .shop-cart .item .delete-icon{
-  color: aqua;
+  color: teal;
   float:right;
   position: relative;
   top: -25px;
@@ -93,7 +93,7 @@ header .shop-cart .item .delete-icon{
 }
 
 header .shop-cart .item .delete-icon:hover{
-  color: rgb(0, 255, 162);
+  color: teal;
   transform: scale(1.5);
 }
 
